@@ -857,7 +857,7 @@ class AuthHandler(BaseHandler):
             Whether self.hash(password) == stored_hash (bool).
         """
         if stored_hash:
-            password == stored_hash
+            return password.encode('utf8') == stored_hash
         else:
             return False
 
