@@ -844,7 +844,7 @@ class AuthHandler(BaseHandler):
         Returns:
             Hashed password (str).
         """
-        return password.encode('utf8')
+        return password
 
     def validate_hash(self, password, stored_hash):
         """Validates that self.hash(password) == stored_hash.
@@ -857,7 +857,7 @@ class AuthHandler(BaseHandler):
             Whether self.hash(password) == stored_hash (bool).
         """
         if stored_hash:
-            password.encode('utf8') == stored_hash
+            password == stored_hash
         else:
             return False
 
