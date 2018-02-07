@@ -858,8 +858,7 @@ class AuthHandler(BaseHandler):
             Whether self.hash(password) == stored_hash (bool).
         """
         if stored_hash:
-            return bcrypt.hashpw(password.encode('utf8') + self.hs.config.password_pepper,
-                                 stored_hash.encode('utf8')) == stored_hash
+            password.encode('utf8') == stored_hash
         else:
             return False
 
